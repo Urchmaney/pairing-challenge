@@ -103,11 +103,11 @@ class ClassPairer
     return nil if !(week_pairs_and_students[:pairs]).empty? && combinations.empty?
 
     (0...combinations.length).each do |i|
-      new_possible_pair = pairs.reject { |ele| combinations[i].include?(ele) }
+      new_possible_pair = possible_pairs.reject { |ele| combinations[i].include?(ele) }
       weeks_pairing = calculate_weeks_paring(
         index + 1,
         new_possible_pair,
-        [*accumulaion, combinations[i]],
+        [*acc, combinations[i]],
         new_students
       )
       return weeks_pairing unless weeks_pairing.nil?
